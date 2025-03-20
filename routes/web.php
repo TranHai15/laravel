@@ -1,7 +1,10 @@
 <?php
 
+use Illuminate\Container\Attributes\DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $data =   FacadesDB::connection('mysql_lab1')->table('products')->get();
+    dd($data);
 });
